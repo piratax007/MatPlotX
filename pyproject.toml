@@ -48,6 +48,9 @@ ignore =[]
 known-first-party = ["matplotx", "utils"]
 force-sort-within-sections = true
 
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["E501"]
+
 [tool.mypy]
 python_version = "3.13"
 ignore_missing_imports = true

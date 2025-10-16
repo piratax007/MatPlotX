@@ -1,9 +1,10 @@
 import os
-import sys
 from pathlib import Path
+import sys
+
+import pytest
 
 from utils.file_utils import file_path_exist
-import pytest
 
 
 def test_file_path_exist_true_for_existing_file(tmp_path: Path) -> None:
@@ -15,9 +16,7 @@ def test_file_path_exist_true_for_existing_file(tmp_path: Path) -> None:
     assert result is True
 
 
-def test_file_path_exist_returns_false_for_non_existing_path(
-        tmp_path: Path
-) -> None:
+def test_file_path_exist_returns_false_for_non_existing_path(tmp_path: Path) -> None:
     p: Path = tmp_path / "this_file_does_not_exist.txt"
 
     result = file_path_exist(p)
@@ -25,9 +24,7 @@ def test_file_path_exist_returns_false_for_non_existing_path(
     assert result is False
 
 
-def test_file_path_exist_returns_true_for_existing_path_passed_as_string(
-        tmp_path: Path
-) -> None:
+def test_file_path_exist_returns_true_for_existing_path_passed_as_string(tmp_path: Path) -> None:
     p: Path = tmp_path / "this_file_exists.txt"
     p.write_text("this file exists")
 
@@ -36,9 +33,7 @@ def test_file_path_exist_returns_true_for_existing_path_passed_as_string(
     assert result is True
 
 
-def test_file_path_exist_returns_false_for_non_existing_path_passed_as_string(
-        tmp_path: Path
-) -> None:
+def test_file_path_exist_returns_false_for_non_existing_path_passed_as_string(tmp_path: Path) -> None:
     p: Path = tmp_path / "this_file_does_not_exist.txt"
 
     result = file_path_exist(str(p))
