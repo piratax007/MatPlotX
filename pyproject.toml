@@ -30,3 +30,32 @@ pythonpath = ["."]
 package-dir = {"" = "."}
 
 [tool.setuptools.packages.find]
+
+[tool.ruff]
+line-length = 79
+src = ["src", "utils", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+]
+ignore =[]
+
+[tool.ruff.lint.isort]
+known-first-party = ["matplotx", "utils"]
+force-sort-within-sections = true
+
+[tool.mypy]
+python_version = "3.13"
+ignore_missing_imports = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+no_implicit_optional = true
+check_untyped_defs = true
+strict_equality = true
+
+mypy_path = "src:utils"
