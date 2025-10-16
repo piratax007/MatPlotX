@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Union
 
+
 def file_path_exist(path: Union[str, Path]) -> bool:
     p = Path(path)
     try:
